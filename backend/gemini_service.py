@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env
+
 load_dotenv()
 
 # Get API key from .env
@@ -10,11 +10,10 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found in .env file")
 
-# Configure Gemini
+
 genai.configure(api_key=api_key)
 
 
-# Define a system prompt
 system_prompt = """
 You are Chef-GPT, a professional recipe assistant.
 - Always provide clear, step-by-step instructions.

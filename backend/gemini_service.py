@@ -33,5 +33,12 @@ def fetch_recipe(ingredients: str, diet: str = None, calories: int = None):
     final_prompt = f"{system_prompt.strip()}\n\n{user_prompt.strip()}"
 
     model = genai.GenerativeModel("gemini-1.5-flash")
-    response = model.generate_content(final_prompt)
+    response = model.generate_content(
+        final_prompt,
+        generation_config={
+            "temperature": 0.7,  # creativity control
+            "top_p": 0.8,        # nucleus sampling
+            "top_k": 30          # limits candidate tokens
+        }
+    )
     return response.text.strip()

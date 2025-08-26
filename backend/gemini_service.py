@@ -37,7 +37,7 @@ def fetch_recipe(ingredients: str, diet: str = None, calories: int = None):
         final_prompt,
         generation_config={
             "temperature": 0.7,  # creativity control
-            "top_p": 0.8,        # nucleus sampling
+            "top_p": 0.9,        # nucleus sampling
             "top_k": 30          # limits candidate tokens
         }
     )
